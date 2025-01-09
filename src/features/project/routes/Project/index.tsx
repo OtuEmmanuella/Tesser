@@ -16,22 +16,7 @@ import { useDisclosure } from "@/hooks/useDisclosure";
 import { useClickOutside } from "@/hooks/useClickOutside";
 import { updateTicket, updateTicketOrder } from "@/slices/tickets";
 import { Link } from "@/components/Elements";
-
-interface ProjectType {
-  id: string;
-  title: string;
-}
-
-interface TicketType {
-  id: string;
-  title: string;
-  issueIds: string[];
-  projectId: string;
-}
-
-interface IssueType {
-  id: string;
-}
+import { Project as ProjectType, Ticket as TicketType, Issue as IssueType } from "@/types";
 
 export const Project = () => {
   const params = useParams();
