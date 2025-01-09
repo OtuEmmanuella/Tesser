@@ -38,7 +38,7 @@ export const Project = () => {
     );
   }
 
-  const project = projects[projectId];
+  const project = projects[projectId] as ProjectType;
   const projectTickets = ticketOrder[projectId];
 
   const handleOnDragEnd = (result: DropResult, provider: ResponderProvided) => {
@@ -64,8 +64,8 @@ export const Project = () => {
       return;
     }
 
-    const startTicket = tickets[source.droppableId];
-    const endTicket = tickets[destination.droppableId];
+    const startTicket = tickets[source.droppableId] as TicketType;
+    const endTicket = tickets[destination.droppableId] as TicketType;
 
     if (startTicket === endTicket) {
       const newIssueIds = Array.from(startTicket.issueIds);
@@ -108,9 +108,9 @@ export const Project = () => {
             >
               <>
                 {projectTickets.map((id, index) => {
-                  const column = tickets[id];
+                  const column = tickets[id] as TicketType;
                   if (!column) return null;
-                  const tasks = column.issueIds.map((taskId) => issues[taskId]).filter(Boolean);
+                  const tasks = column.issueIds.map((taskId) => issues[taskId] as IssueType).filter(Boolean);
                   return (
                     <TicketComponent
                       key={id}
@@ -152,7 +152,7 @@ export const Project = () => {
                       id: "dummy",
                       issueIds: [],
                       projectId: projectId,
-                    }}
+                    } as TicketType}
                     issues={[]}
                     isDummy={handleClose}
                     index={1}
