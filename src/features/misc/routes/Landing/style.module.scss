@@ -1,0 +1,55 @@
+@import "@/styles/abstracts/variables";
+@import "@/styles/abstracts/mixins";
+@import "@/styles/abstracts/functions";
+
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  &__hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4rem;
+
+    &-text {
+      font-size: toRem(28px);
+      line-height: toRem(38px);
+      font-weight: bold;
+      color: $col-black;
+
+      @media screen and (min-width: 42em) {
+        font-size: 45px;
+        line-height: toRem(57px);
+      }
+
+      @media screen and (min-width: 62em) {
+        font-size: 4rem;
+        line-height: toRem(67px);
+      }
+
+      span {
+        color: $col-primary;
+      }
+    }
+
+    &-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-self: flex-start;
+      margin-top: 2rem;
+
+      a {
+        padding: toRem(8px) toRem(24px);
+        border: 1px solid transparent;
+        background-color: $col-black;
+        color: $col-light;
+        @include border-radius(5px);
+      }
+    }
+  }
+}

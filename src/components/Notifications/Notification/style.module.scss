@@ -1,0 +1,56 @@
+@import "@/styles/abstracts/variables";
+@import "@/styles/abstracts/mixins";
+@import "@/styles/abstracts/functions";
+
+.notification {
+  display: flex;
+  padding: 1rem;
+  background-color: $col-light;
+  @include border-radius(6px);
+  box-shadow: $shadow-secondary;
+
+  &__content {
+    margin-left: 1rem;
+    color: $col-dark;
+    height: fit-content;
+
+    :last-child {
+      margin-top: 0.5rem;
+      color: $col-grey;
+    }
+  }
+
+  &__control {
+    height: fit-content;
+    margin-left: 1rem;
+    color: $col-grey;
+
+    button {
+      height: 1.25rem;
+      width: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &-icon {
+    height: fit-content;
+  }
+
+  &__icon-warning {
+    color: $col-warning;
+  }
+
+  &__icon-success {
+    color: $col-success;
+  }
+
+  &__icon-info {
+    color: $col-info;
+  }
+
+  &__icon-error {
+    color: $col-error;
+  }
+}

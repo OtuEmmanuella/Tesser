@@ -1,0 +1,59 @@
+@import "@/styles/abstracts/variables";
+@import "@/styles/abstracts/mixins";
+@import "@/styles/abstracts/functions";
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-color: grey;
+  @include border-radius(5px);
+  width: 100%;
+  border: 1px solid transparent;
+
+  &__variant {
+    &-primary {
+      background-color: $col-dark;
+      color: $col-light-grey;
+    }
+
+    &-danger {
+      background-color: $col-danger;
+      color: $col-light;
+    }
+
+    &-inverse {
+      background-color: $col-light;
+      color: $col-primary;
+      border-color: rbg(209, 213, 219);
+      box-shadow: $shadow-primary;
+    }
+  }
+
+  &__size {
+    &-sm {
+      padding: 0.5rem 1rem;
+    }
+
+    &-md {
+      padding: toRem(8px) toRem(24px);
+    }
+
+    &-lg {
+      padding: 1.5rem 2rem;
+    }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+
+  &:focus {
+    outline: none;
+  }
+  //  rounded-md shadow-sm font-medium focus:outline-none',
+  &__spinner {
+    color: currentColor;
+  }
+}

@@ -1,0 +1,47 @@
+@import "@/styles/abstracts/variables";
+@import "@/styles/abstracts/mixins";
+@import "@/styles/abstracts/functions";
+
+.form {
+  flex-grow: 1;
+  position: relative;
+  height: 100%;
+  margin-left: toRem(6px);
+  margin-right: toRem(6px);
+
+  input {
+    color: $col-grey;
+    font-weight: 500;
+    font-size: toRem(12px);
+    height: toRem(30px);
+    width: 100%;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border: none;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0px 0px 0px 2px $col-primary;
+    }
+  }
+
+  &__controls {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 0.4rem;
+    @include z-index(normal);
+    display: flex;
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgb(255, 255, 255);
+      padding: 0.5rem;
+      @include border-radius(3px);
+      margin-right: 0.4rem;
+      box-shadow: $shadow-primary;
+    }
+  }
+}

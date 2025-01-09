@@ -1,0 +1,15 @@
+@import "@/styles/abstracts/variables";
+@import "@/styles/abstracts/mixins";
+@import "@/styles/abstracts/functions";
+
+.input {
+  width: 100%;
+  margin-top: 0.6rem;
+  border: 1px groove $col-dark;
+  height: 3rem;
+  @include border-radius(5px);
+  // font-weight: 500;
+  padding: 0.5rem 1rem;
+  color: $col-dark;
+  // @include placeholder(rgba($col-primary, 0.5));
+}

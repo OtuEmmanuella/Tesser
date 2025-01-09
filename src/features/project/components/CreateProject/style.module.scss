@@ -1,0 +1,58 @@
+@import "@/styles/abstracts/variables";
+@import "@/styles/abstracts/mixins";
+@import "@/styles/abstracts/functions";
+
+.project {
+  width: 100%;
+
+  font-weight: 500;
+
+  @media screen and (min-width: 62em) {
+    width: 50vw;
+  }
+
+  &-trigger {
+    max-width: toRem(200px);
+  }
+
+  &-header {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+
+  &-header-content {
+    flex-grow: 1;
+  }
+
+  h2,
+  h3 {
+    color: $col-dark;
+    font-weight: 500;
+  }
+
+  &-section {
+    text-align: left;
+
+    &-text,
+    h2,
+    h3 {
+      @media screen and (min-width: 62em) {
+        padding-left: 3rem;
+      }
+    }
+
+    h3 {
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin-bottom: 0.25rem;
+      font-weight: 500;
+    }
+
+    hr {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+@import "@/styles/abstracts/variables";
+@import "@/styles/abstracts/mixins";
+@import "@/styles/abstracts/functions";
+
+.project {
+  height: 100%;
+
+  &__title {
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__tickets {
+    display: flex;
+    width: 90vw;
+    padding-bottom: 2rem;
+    overflow-x: scroll;
+
+    &-add-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-self: flex-start;
+      background-color: $col-light-grey;
+      padding: 0.5rem;
+      @include border-radius(3px);
+
+      &:hover {
+        outline: none;
+        transition: background-color 0.25s ease-in;
+        background-color: rgba($color: $col-grey, $alpha: 0.5);
+      }
+    }
+  }
+}

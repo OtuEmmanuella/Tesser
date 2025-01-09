@@ -1,0 +1,94 @@
+// OUR Z-INDEX SHOULD BE USED THIS WAY. SO WE DON'T HAVE DIFFERENT Z-INDEX FLYING AROUND
+// use @include z-index(fill-page); for example
+@use "sass:math";
+
+$z-index: (
+  max-index: 9999999999,
+  fill-page: 60,
+  modal: 50,
+  dropdown-menu: 40,
+  navigation: 30,
+  underlay: 20,
+  overlay: 10,
+  normal: 5,
+  behind: -1,
+);
+
+@function z-index($key) {
+  @return map-get($z-index, $key);
+}
+
+@mixin z-index($key) {
+  z-index: z-index($key);
+}
+
+@mixin border-radius($pixel...) {
+  border-radius: $pixel;
+  -webkit-border-radius: $pixel;
+  -moz-border-radius: $pixel;
+  -ms-border-radius: $pixel;
+  -o-border-radius: $pixel;
+}
+
+@mixin filter($value) {
+  filter: $value();
+  -webkit-filter: $value();
+}
+
+//   SCALE ELEMENT FOR HOVER EFFECT
+@mixin scale($scale) {
+  transform: scale($scale);
+  -webkit-transform: scale($scale);
+  -moz-transform: scale($scale);
+  -ms-transform: scale($scale);
+  -o-transform: scale($scale);
+}
+
+@mixin grid-center {
+  display: grid;
+  place-items: center;
+}
+
+@mixin placeholder($color) {
+  /* WebKit, Edge */
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+
+  /* Firefox 4-18 */
+  &:-moz-placeholder {
+    color: $color;
+  }
+
+  /* Firefox 19+ */
+  &::-moz-placeholder {
+    color: $color;
+  }
+
+  /* IE 10-11 */
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+
+  /* Edge */
+  &::-ms-input-placeholder {
+    color: $color;
+  }
+
+  /* MODERN BROWSER */
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+  &::-moz-placeholder {
+    color: $color;
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+  &::-ms-input-placeholder {
+    color: $color;
+  }
+  &::placeholder {
+    color: $color;
+  }
+}

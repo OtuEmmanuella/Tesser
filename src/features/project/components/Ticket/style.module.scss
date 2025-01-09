@@ -1,0 +1,85 @@
+@import "@/styles/abstracts/variables";
+@import "@/styles/abstracts/mixins";
+@import "@/styles/abstracts/functions";
+
+.ticket {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: toRem(282px);
+  max-width: toRem(282px);
+  margin-right: 1rem;
+
+  &__header {
+    height: toRem(30px);
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  &__header-title {
+    cursor: pointer;
+    color: $col-grey;
+    font-weight: 500;
+    font-size: toRem(12px);
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+
+    &-text {
+      font-weight: inherit;
+      font-size: inherit;
+
+      &:hover {
+        outline: none;
+        transition: background-color 0.25s ease-in;
+        background-color: rgba($color: $col-grey, $alpha: 0.2);
+      }
+
+      > * + * {
+        margin-left: 0.5rem;
+      }
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background-color: $col-light-grey;
+    @include border-radius(6px);
+    padding-bottom: 0.5rem;
+  }
+
+  &__main {
+    position: relative;
+    flex-grow: 1;
+    min-height: toRem(100px);
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+
+    &-button {
+      align-items: center;
+      color: $col-grey;
+      font-weight: 500;
+      display: flex;
+      width: 100%;
+      padding: 0.35rem 0.7rem;
+      @include border-radius(3px);
+
+      &:hover {
+        outline: none;
+        transition: background-color 0.25s ease-in;
+        background-color: rgba($color: $col-grey, $alpha: 0.2);
+      }
+
+      & :last-child {
+        margin-left: 0.25rem;
+      }
+    }
+  }
+}

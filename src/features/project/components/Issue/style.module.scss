@@ -1,0 +1,22 @@
+@import "@/styles/abstracts/variables";
+@import "@/styles/abstracts/mixins";
+@import "@/styles/abstracts/functions";
+
+.issue {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $col-light;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  @include border-radius(3px);
+
+  &:hover {
+    transition: background-color 0.25s ease-in;
+    background-color: rgba($color: $col-grey, $alpha: 0.2);
+  }
+
+  button {
+    outline: none;
+  }
+}

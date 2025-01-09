@@ -1,0 +1,11 @@
+@import "@/styles/abstracts/variables";
+@import "@/styles/abstracts/mixins";
+@import "@/styles/abstracts/functions";
+
+.link {
+  color: $col-dark;
+
+  &__active {
+    color: $col-dark;
+  }
+}
