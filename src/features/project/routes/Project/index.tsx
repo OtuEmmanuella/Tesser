@@ -11,36 +11,26 @@ import {
 
 import style from "./style.module.scss";
 
-import { Ticket } from "../../components/Ticket";
+import { Ticket as TicketComponent } from "../../components/Ticket";
 import { useDisclosure } from "@/hooks/useDisclosure";
 import { useClickOutside } from "@/hooks/useClickOutside";
 import { updateTicket, updateTicketOrder } from "@/slices/tickets";
 import { Link } from "@/components/Elements";
 
-// Add proper types
-interface Project {
+interface ProjectType {
   id: string;
   title: string;
-  // Add other project properties as needed
 }
 
-interface Ticket {
+interface TicketType {
   id: string;
   title: string;
   issueIds: string[];
   projectId: string;
 }
 
-interface Issue {
+interface IssueType {
   id: string;
-  // Add other issue properties as needed
-}
-
-interface RootState {
-  projects: Record<string, Project>;
-  tickets: Record<string, Ticket>;
-  ticketOrder: Record<string, string[]>;
-  issues: Record<string, Issue>;
 }
 
 export const Project = () => {
@@ -53,7 +43,6 @@ export const Project = () => {
   const { isOpen, handleClose, handleOpen } = useDisclosure();
   useClickOutside(ref, handleClose);
 
-  // Add safety checks
   const projectId = params.id;
   if (!projectId || !projects || !projects[projectId]) {
     return (
@@ -64,7 +53,6 @@ export const Project = () => {
     );
   }
 
-  // Define project variable after safety checks
   const project = projects[projectId];
   const projectTickets = ticketOrder[projectId];
 
@@ -104,7 +92,6 @@ export const Project = () => {
       return;
     }
 
-    //Moving across tickets
     const startIssueIds = Array.from(startTicket.issueIds);
     startIssueIds.splice(source.index, 1);
     const newStartTicket = { ...startTicket, issueIds: startIssueIds };
@@ -140,7 +127,7 @@ export const Project = () => {
                   if (!column) return null;
                   const tasks = column.issueIds.map((taskId) => issues[taskId]).filter(Boolean);
                   return (
-                    <Ticket
+                    <TicketComponent
                       key={id}
                       ticket={column}
                       issues={tasks}
@@ -174,7 +161,7 @@ export const Project = () => {
                     </svg>
                   </button>
                 ) : (
-                  <Ticket
+                  <TicketComponent
                     ticket={{
                       title: "",
                       id: "dummy",
